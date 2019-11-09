@@ -11,9 +11,12 @@
     <header class="header">
       <nav class="main-navigation close container container--header">
         <p class="main-navigation__logo">
-          <svg alt="Логотип" width="100" height="30" class="main-navigation__logo-image">
-              <use xlink:href="./image/sprite/sprite.svg#logotype-mobile"></use>
-            </svg></p>
+          <a href="" class="main-navigation__logo-link">
+            <svg alt="Логотип" width="100" height="30" class="main-navigation__logo-image">
+                <use xlink:href="./image/spriteSVG/sprite.svg#logotype-mobile"></use>
+            </svg>
+          </a>
+        </p>
         <button class="toggler">Переключатель</button>
         <ul class="main-navigation__list">
           <li class="main-navigation__item">
@@ -41,9 +44,9 @@
               иначе!</h2>
             <a href="" class="application__link">Скачать приложение</a>
             <ul class="application__device-list">
-              <li class="application__device"><img src="./image/pictureSVG/apple-logo.svg" alt="apple" /></li>
-              <li class="application__device"><img src="./image/pictureSVG/android-logo.svg" alt="android" /></li>
-              <li class="application__device"><img src="./image/pictureSVG/microsoft-logo.svg" alt="windows phone" /></li>
+              <li class="application__device"><img src="./image/content-SVG/apple-logo.svg" alt="apple" /></li>
+              <li class="application__device"><img src="./image/content-SVG/android-logo.svg" alt="android" /></li>
+              <li class="application__device"><img src="./image/content-SVG/microsoft-logo.svg" alt="windows phone" /></li>
             </ul>
             <p class="application__cover">
               Доступно для iPhone, iPad, Android, <br>
@@ -65,19 +68,41 @@
           <h2 class="visually-hidden">Особенности нашего приложения</h2>
           <div class="features__inner container">
             <p class="features__represent">
-              <img 
-                src="./image/content-picture/Iphone-red-smile-large-cut.png" 
-                alt="пример приложения" 
-                class="features__represent-image" />
+                <picture class="features__represent-inner">
+                    <source
+                      type="image/webp"
+                      media="(min-width:320px)"
+                      srcset="./image/content-picture/Iphone-red-smile-large-cut@2x.webp 2x,
+                      ./image/content-picture/Iphone-red-smile-large-cut.webp 1x"
+                      alt="пример приложения"
+                    />
+                    <img 
+                      src="./image/content-picture/Iphone-red-smile-large-cut.png" 
+                      srcset="./image/content-picture/Iphone-red-smile-large-cut@2x.png 2x"
+                      alt="пример приложения" 
+                      class="features__represent-image" 
+                    />
+                </picture>
             </p>
             <ul class="features__list">
     
               <li class="features__item">
                 <p class="features__image-wrapper">
-                  <img 
-                    src="./image/content-picture/Iphone-gray.png" 
-                    alt="пример приложения" 
-                    class="features__image" />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      media="(min-width:320px)"
+                      srcset="./image/content-picture/Iphone-gray@2x.webp 2x,
+                      ./image/content-picture/Iphone-gray.webp 1x"
+                      alt="пример приложения"
+                    />
+                    <img 
+                        src="./image/content-picture/Iphone-gray.png"
+                        srcset="./image/content-picture/Iphone-gray@2x.png 2x"
+                        alt="пример приложения" 
+                        class="features__image" 
+                    />
+                  </picture>
                 </p>
                 <div class="features__description">
                   <h3 class="features__caption">Поднимает настроение</h3>
@@ -90,10 +115,20 @@
     
               <li class="features__item">
                 <p class="features__image-wrapper">
-                  <img 
-                    src="./image/content-picture/Iphone-red.png" 
-                    alt="пример приложения" 
-                    class="features__image" />
+                  <picture>
+                      <source
+                        type="image/webp"
+                        srcset="./image/content-picture/Iphone-red@2x.webp 2x,
+                        ./image/content-picture/Iphone-red.webp 1x"
+                        alt="пример приложения"
+                      />
+                      <img 
+                        src="./image/content-picture/Iphone-red.png"
+                        srcset="./image/content-picture/Iphone-red@2x.png 2x"
+                        alt="пример приложения" 
+                        class="features__image" 
+                      />
+                  </picture>
                 </p>
                 <div class="features__description">
                     <h3 class="features__caption">Меняет мир вокруг</h3>
@@ -106,10 +141,21 @@
     
               <li class="features__item">
                 <p class="features__image-wrapper">
-                  <img 
-                    src="./image/content-picture/Iphone-red-smile.png" 
-                    alt="пример приложения" 
-                    class="features__image" />
+                  <picture>
+                      <source
+                        type="image/webp"
+                        media="(min-width:320px)"
+                        srcset="./image/content-picture/Iphone-red-smile@2x.webp 2x,
+                        ./image/content-picture/Iphone-red-smile.webp 1x"
+                        alt="пример приложения"
+                      />
+                      <img 
+                        src="./image/content-picture/Iphone-red-smile.png"
+                        rcset="./image/content-picture/Iphone-red-smile@2x.png 2x"
+                        alt="пример приложения" 
+                        class="features__image" 
+                      />
+                  </picture>
                 </p>
                 <div class="features__description">
                   <h3 class="features__caption">Заводит новых друзей</h3>
@@ -129,7 +175,7 @@
         <div class="research__inner container">
           <p class="research__timer-wrapper">
             <img 
-              src="./image/pictureSVG/timer.svg" 
+              src="./image/content-SVG/timer.svg" 
               alt="время действия нашего приложения - 24 часа!" 
               class="research__timer" />
           </p>
@@ -334,7 +380,7 @@
       <p class="footer__item">
         <a href="" class="logo footer__logo-link"
           ><svg class="footer__logo" width="195" height="53">
-            <use xlink:href="./image/sprite/sprite.svg#logotype-tablet-footer"></use>
+            <use xlink:href="./image/spriteSVG/sprite.svg#logotype-tablet-footer"></use>
           </svg>
         </a>
       </p>
@@ -357,7 +403,7 @@
                 </a>
             </li>
         </ul>
-        <p class="footer__nothing footer__item">Рекалама =)</p>
+        <p class="footer__nothing footer__item">Рекалама</p>
     </footer>
   </body>
 </html>
