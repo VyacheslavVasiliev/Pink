@@ -127,10 +127,17 @@ function svgCSS(){ // создает спрайты для встравиван�
       namespaceIDs:false
     }
   }
+  const svgoConfig = {
+    plugins: [{
+      removeAttrs: {
+        attrs: "clip-path" // clip-path обрезал пополам спрайты 
+      }
+    }]
+  }
 
   return src("./src/image/cssSpriteSVG/*.svg")
     .pipe(imagemin([
-      imagemin.svgo()
+      imagemin.svgo(svgoConfig)
     ]))
     .pipe(svgSprite(svgConfig))
     .pipe(dest("./build/image/cssSpriteSVG"))
@@ -155,4 +162,4 @@ function watcher() {
 exports.build = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js, compilingJs));
 exports.watch = series(clear, parallel(styles, html, js, compilingJs), watcher);
 exports.preflight = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js, compilingJs));
-exports.test = svgInlineSprite;
+exports.test = svgCSS;
