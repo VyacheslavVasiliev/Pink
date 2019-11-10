@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./style.css">
+    <script src="./scripts/script.js" defer></script>
     <script src="./scripts/picturefill.min.js" defer></script>
     <script src="./scripts/svg4everybody.min.js" defer></script>
     <title>Document</title>
   </head>
   <body>
     <header class="header">
-      <nav class="main-navigation close container container--header">
+      <nav class="main-navigation container container--header">
         <p class="main-navigation__logo">
           <a href="" class="main-navigation__logo-link">
-            <svg alt="Логотип" width="100" height="30" class="main-navigation__logo-image">
-                <use xlink:href="./image/spriteSVG/sprite.svg#logotype-mobile"></use>
+            <svg alt="Логотип" class="main-navigation__logo-image logo">
+                <use xlink:href="./image/spriteSVG/sprite.svg#logotype-desktop"></use>
             </svg>
           </a>
         </p>
@@ -30,7 +31,7 @@
           <li class="main-navigation__item">
             <a href="" class="main-navigation__link">Конкурс</a>
           </li>
-          <li class="main-navigation__item">
+          <li class="main-navigation__item main-navigation__item--no-link">
               Реклама
           </li>
         </ul>
@@ -44,7 +45,7 @@
               Взгляните <br>
               на жизнь <br> 
               иначе!</h2>
-            <a href="" class="application__link">Скачать приложение</a>
+            <a href="" class="application__link button button--application">Скачать приложение</a>
             <ul class="application__device-list">
               <li class="application__device"><img src="./image/content-SVG/apple-logo.svg" alt="apple" /></li>
               <li class="application__device"><img src="./image/content-SVG/android-logo.svg" alt="android" /></li>
@@ -374,9 +375,9 @@
     </main>
     <footer class="footer container">
       <p class="footer__item">
-        <a href="" class="logo footer__logo-link"
-          ><svg class="footer__logo" width="195" height="53">
-            <use xlink:href="./image/spriteSVG/sprite.svg#logotype-tablet-footer"></use>
+        <a href="" class="footer__logo-link"
+          ><svg class="footer__logo logo logo--footer" width="195" height="53">
+            <use xlink:href="./image/spriteSVG/sprite.svg#logotype-desktop-footer"></use>
           </svg>
         </a>
       </p>

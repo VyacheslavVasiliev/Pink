@@ -12,6 +12,8 @@ const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const svgSprite = require('gulp-svg-sprite');
+const babel = require("gulp-babel");
+const uglify = require('gulp-uglify');
 
 
 const isDev = process.argv.includes("--dev");
@@ -52,9 +54,23 @@ function html() {
     .pipe(gulpif(isSync, browserSync.stream()));
 }
 
+function compilingJs(){
+  return src("./src/scripts/compilingJs/*.js")
+    .pipe(babel({
+      presets: [
+        '@babel/preset-env'
+      ]
+    }))
+    .pipe(gulpif(isProd, uglify()))
+    .pipe(dest("./build/scripts"));
+}
+
 function js() {
-  return src("./src/**/*.js")
-    .pipe(dest("./build/"));
+  return src(["./src/scripts/**/*.js",
+              "./node_modules/babel-polyfill/dist/polyfill.min.js", // руками напрямую добавил полифил, ибо не использовал сборщика понимающего модули
+              "!src/scripts/compilingJs/**"])
+    .pipe(gulpif(isProd, uglify()))
+    .pipe(dest("./build/scripts"));
 }
 
 function picture(){
@@ -129,15 +145,14 @@ function watcher() {
 
   watch("./src/**/*.{less,css}", styles);
   watch("./src/index.html", html);
-  watch("./src/**/*.js", js);
+  watch(["./src/scripts/**/*.js","!src/scripts/compilingJs/**"], js);
+  watch("./src/scripts/compilingJs/*.js", compilingJs);
   watch(["./src/image/**/*.{png,jpg}","./src/image/content-SVG/*.svg"], picture)
   watch("./src/image/sprite/*.svg", svgInlineSprite)
   watch("./src/image/CSS/*.svg", svgCSS)
 }
 
-// exports.build = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js));
-// exports.watch = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js), watcher);
-
-exports.build = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js));
-exports.watch = series(clear, parallel(styles, html, js,), watcher);
-exports.preflight = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js));
+exports.build = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js, compilingJs));
+exports.watch = series(clear, parallel(styles, html, js, compilingJs), watcher);
+exports.preflight = series(clear, parallel(styles, html, picture, webpPicture, svgInlineSprite, svgCSS, fonts, js, compilingJs));
+exports.test = svgInlineSprite;
