@@ -1,0 +1,207 @@
+.tariffs {
+  overflow: hidden;
+
+  padding-bottom: 45px;
+  margin-bottom:40px;
+
+
+  @media (min-width: 660px) {
+    width: 100%;
+    padding-bottom: 70px;
+  }
+
+  @media (min-width: 960px) {
+    padding-bottom: 100px;
+    
+    margin-top: 150px;
+    margin-bottom: 60px;
+  }
+}
+
+.tariffs__table {
+  border-collapse: collapse;
+
+  margin-bottom: 40px;
+
+  @media (max-width: 659px) {
+    position: relative;
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media (min-width: 660px) {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 659px) {
+  .tariffs__table--left {
+    transform: translateX(-17%);
+  }
+
+  .tariffs__table--right {
+    transform: translateX(-83%);
+  }
+}
+
+.tariffs__table tr {
+  display: flex;
+  justify-content: flex-end;
+
+  @media (min-width: 660px) {
+    flex-wrap: wrap;
+  }
+}
+
+.tariffs__table td,
+.tariffs__table th {
+  width: 280px;
+  flex-shrink: 0;
+
+  @media (min-width: 660px) {
+    width: 25%;
+    flex-shrink: 1;
+  }
+}
+
+// Шапка
+.tariffs__name {
+  display: block;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background-color: @mainSiteColor;
+
+  color: @secondaryTextColor;
+}
+
+.tariffs__name + .tariffs__name {
+  border-left: 2px solid #e5e5e5;
+}
+
+.tariffs__name--hit {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "Хит";
+
+    position: absolute;
+    top: 7px;
+    left: -34px;
+
+    transform: rotate(-45deg);
+
+    background-color: @informTextColor;
+
+    text-transform: uppercase;
+
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 700;
+
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.tariffs__title {
+  margin: 0;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 30px;
+
+  font-weight: 700;
+  text-align: center;
+
+  @media (min-width: 660px) and (max-width: 959px) {
+    font-size: 16px;
+  }
+}
+
+.tariffs__name--empty {
+  display: none;
+}
+
+.tariffs__price {
+  font-size: 18px;
+  line-height: 30px;
+
+  font-weight: 300;
+  text-align: center;
+
+  @media (min-width: 960px) {
+    font-size: 24px;
+  }
+}
+
+// Тело
+
+.tariffs__feature {
+  display: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  border: 1px solid #e5e5e5;
+
+  background-color: @mainBackgroundColor;
+
+  font-size: 14px;
+  line-height: 30px;
+
+  font-weight: 400;
+
+  color: @mainTextColor;
+  @media (min-width: 660px) {
+    display: block;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    min-height: 45px;
+  }
+
+  @media (min-width: 960px) {
+    font-size: 18px;
+
+    min-height: 60px;
+  }
+}
+
+.tariffs__feature--body {
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: 660px) {
+    display: flex;
+    justify-content: center;
+
+    padding-left: 0;
+  }
+}
+.tariffs__feature-name {
+  font-weight: 400;
+}
+
+.tariffs__feature--body .tariffs__feature-name {
+  @media (min-width: 660px) {
+    display: none;
+  }
+}
+
+.tariffs__mark {
+  width: 25%;
+}
+
+.tariffs__slider {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 660px) {
+    display: none;
+  }
+}

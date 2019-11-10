@@ -1,0 +1,49 @@
+.diagonal {
+  background-color: @mainBackgroundColor;
+  background-image: linear-gradient(
+    176deg,
+    @mainBackgroundColor 230px,
+    @secondaryBackgroundColor 230px
+  );
+
+  @media (min-width: 660px) {
+    background-image: linear-gradient(
+      176deg,
+      @mainBackgroundColor 260px,
+      @secondaryBackgroundColor 260px
+    );
+  }
+
+  @media (min-width: 960px) {
+    background-image: linear-gradient(
+      178deg,
+      @mainBackgroundColor 310px,
+      @secondaryBackgroundColor 310px
+    );
+  }
+}
+
+.diagonal--tariffs {
+  background-color: @mainBackgroundColor;
+  background-image: linear-gradient(
+    -4deg,
+    @secondaryBackgroundColor 465px,
+    @mainBackgroundColor 465px
+  );
+
+  @media (min-width: 660px) {
+    background-image: linear-gradient(
+      -4deg,
+      @secondaryBackgroundColor 410px,
+      @mainBackgroundColor 410px
+    );
+  }
+
+  @media (min-width: 960px) {
+    background-image: linear-gradient(
+      -2deg,
+      @secondaryBackgroundColor 540px,
+      @mainBackgroundColor 540px
+    );
+  }
+}

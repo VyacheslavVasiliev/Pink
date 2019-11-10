@@ -1,0 +1,106 @@
+.application {
+  min-height: 730px;
+  margin-top: -68px;
+  margin-bottom: 45px;
+
+  border-top: 1px solid transparent;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  text-align: center;
+  color: @secondaryTextColor;
+
+  background-color: @mainSiteColor;
+  background-image: url("./image/background-picture/back-mobile-phone.jpg");
+  background-size: 755px auto;
+  background-repeat: repeat-x;
+  background-position: center 0px;
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    background-image: url("./image/background-picture/back-mobile-phone@2x.jpg");
+  }
+
+  @media (min-width: 660px) {
+    margin-top: -110px;
+    margin-bottom: 55px;
+
+    background-image: url("./image/background-picture/back-tablet-phone.jpg");
+    background-size: 1200px auto;
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background-image: url("./image/background-picture/back-tablet-phone@2x.jpg");
+    }
+  }
+
+  @media (min-width: 960px) {
+    min-height: 850px;
+    margin-bottom: 75px;
+
+    background-image: url("./image/background-picture/back-desktop-phone.jpg");
+    background-size: 2560px auto;
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background-image: url("./image/background-picture/back-desktop-phone@2x.jpg");
+    }
+  }
+}
+
+.application__content {
+  margin-top: 490px;
+  @media (min-width: 660px) {
+    margin-top: 200px;
+    width: 48%;
+  }
+
+  @media (min-width: 960px) {
+    margin-top: 210px;
+    width: 32%;
+  }
+}
+
+.application__caption {
+  display: none;
+
+  @media (min-width: 660px) {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+
+    font-weight: 300;
+
+    font-size: 40px;
+    line-height: normal;
+  }
+  @media (min-width: 960px) {
+    font-size: 50px;
+  }
+}
+
+.application__link {
+  margin-bottom: 30px;
+}
+
+.application__device-list {
+  .listDrop();
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  width: 73.214%;
+  margin-right: auto;
+  margin-left: auto;
+  
+  margin-bottom: 20px;
+}
+
+.application__cover {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 300;
+
+  font-size: 14px;
+  line-height: 24px;
+  @media (min-width: 660px) {
+    font-size: 18px;
+  }
+}

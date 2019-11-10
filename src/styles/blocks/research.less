@@ -1,0 +1,146 @@
+.research {
+  @media (max-width: 659px) {
+    display: none;
+  }
+  margin-bottom: 100px;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  font-weight: 400;
+  color: @mainTextColor;
+
+  @media (min-width: 960px) {
+    margin-bottom: 0;
+    padding-top: 60px;
+    padding-bottom: 65px;
+
+    font-size: 18px;
+    line-height: 30px;
+
+    background-color: @secondaryBackgroundColor;
+  }
+}
+
+.research__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Делаю внутренний кург и циферку в центре
+.research__timer-wrapper {
+  margin: 0;
+  padding: 0;
+
+  font-size: 0;
+  line-height: 0;
+
+  width: 38.389%;
+  @media (min-width: 960px) {
+    width: 32%;
+  }
+
+  position: relative;
+
+  &::before {
+    position: absolute;
+
+    content: "";
+
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 84.8739%;
+    height: 73.1884%;
+
+    border: 2.2727vw solid @informTextColor;
+    border-radius: 50%;
+    @media (min-width: 960px) {
+      border-width: 18px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+
+    content: "24";
+
+    font-size: 14.5454vw;
+    line-height: 150px;
+    @media (min-width: 960px) {
+      font-size: 120px;
+      line-height: 186px;
+    }
+
+    font-weight: 700;
+
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: @informTextColor;
+  }
+}
+
+.research__timer {
+  width: 100%;
+}
+
+.research__container {
+  width: 50%;
+  @media (min-width: 960px) {
+    width: 60%;
+  }
+}
+
+.research__title {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+
+  padding-right: 40%;
+
+  font-size: 30px;
+  line-height: 36px;
+
+  color: @titleTextColor;
+
+  font-weight: 700;
+  @media (min-width: 960px) {
+    padding: 0;
+
+    margin-bottom: 25px;
+  }
+}
+
+.research__text {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+
+  @media (min-width: 960px) {
+    margin-bottom: 30px;
+  }
+}
+
+.research__more {
+  border-bottom: 1px solid @informTextColor;
+
+  color: @informTextColor;
+
+  &:hover {
+    border-bottom: 1px solid @mainTextColor;
+
+    color: @mainTextColor;
+  }
+
+  &:active {
+    border: none;
+
+    color: fade(@mainTextColor, 30%);
+    text-decoration: none;
+  }
+}

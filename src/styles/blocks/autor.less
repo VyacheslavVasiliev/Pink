@@ -1,0 +1,41 @@
+.autor__name {
+  margin: 0;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 30px;
+
+  font-weight: 700;
+  color: @titleTextColor;
+
+  @media (min-width: 660px) {
+    margin-bottom: 5px;
+
+    font-size: 20px;
+  }
+
+  @media (min-width: 960px) {
+    font-size: 24px;
+  }
+}
+
+.autor__about {
+  display: none;
+
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 660px) {
+    display: initial;
+
+    font-size: 14px;
+    line-height: 30px;
+
+    font-weight: 400;
+    color: @mainTextColor;
+  }
+
+  @media (min-width: 960px) {
+    font-size: 18px;
+  }
+}

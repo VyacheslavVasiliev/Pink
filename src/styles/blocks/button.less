@@ -1,0 +1,32 @@
+.button {
+  display: inline-block;
+  padding: 15px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+
+  color: @secondaryTextColor;
+
+  border: 3px solid @secondaryTextColor;
+  border-radius: 50px;
+
+  @media (min-width: 960px) {
+    font-size: 21px;
+    line-height: 21px;
+  }
+}
+.button:hover {
+  background-color: @secondaryTextColor;
+  color: @informTextColor;
+}
+
+.button:active {
+  color: fade(@informTextColor, 30%);
+
+  transition: none;
+}
+
+.button--application {
+  display: block;
+}

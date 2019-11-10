@@ -1,0 +1,55 @@
+// Оказалось нерентабельно засорять разметку из за бага с треугольниками.
+// Сделал тоже самое на псевдоэлементах
+
+.ribbon__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.ribbon {
+  position: absolute;
+  top: 7px;
+  left: -34px;
+
+  transform: rotate(-45deg);
+
+  background-color: @informTextColor;
+
+  text-transform: uppercase;
+
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 700;
+
+  padding-right: 40px;
+  padding-left: 40px;
+
+  // Это треугольники которые криво работают и оставляют пространсво между собой и элементом. 
+  // Проще было сделать oveflow hidden и огромные внутренние отуступы
+  
+  //   &::before {
+//     content: "";
+
+//     position: absolute;
+
+//     top: 0;
+//     left: -30px;
+
+//     border: 15px solid transparent;
+//     border-right: 15px solid @informTextColor;
+//     border-bottom: 15px solid @informTextColor;
+//   }
+
+//   &::after {
+//     content: "";
+
+//     position: absolute;
+
+//     top: 0;
+//     right: -30px;
+
+//     border: 15px solid transparent;
+//     border-left: 15px solid @informTextColor;
+//     border-bottom: 15px solid @informTextColor;
+//   }
+}

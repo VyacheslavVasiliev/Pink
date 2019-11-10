@@ -1,0 +1,124 @@
+.main-navigation {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 700;
+  color: @secondaryTextColor;
+  text-align: center;
+
+  background-color: @mainSiteColor;
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    font-weight: 300;
+    text-transform: none;
+    line-height: 18px;
+    text-align: right;
+
+    background-color:transparent;
+  }
+}
+
+.close.main-navigation {
+  background-color: transparent;
+}
+
+.main-navigation__list {
+  display: block;
+  @media (min-width: 960px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 84%;
+  }
+}
+
+.main-navigation__list {
+  .listDrop();
+}
+
+@media (max-width: 959px) {
+  .close .main-navigation__list {
+    display: none;
+  }
+}
+
+.close .main-navigation__logo {
+  border-bottom: none;
+}
+
+.main-navigation__logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0;
+  line-height: 0;
+
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+
+  border-bottom: 1px solid #010101;
+
+  min-height: 66px;
+
+  @media (min-width: 660px) {
+    min-height: 110px;
+  }
+
+  @media (min-width: 960px) {
+    width: 16%;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.main-navigation__item {
+  @media (min-width: 960px) {
+    width: 20%;
+  }
+}
+.main-navigation__item--no-link,
+.main-navigation__link {
+  display: block;
+
+  padding: 15px;
+
+  background-color: @mainSiteColor;
+  border-top: 1px solid #485461;
+  border-bottom: 1px solid #010101;
+
+  color: @secondaryTextColor;
+
+  transition: color 90ms ease;
+
+  @media (min-width: 960px) {
+    display: inline-block;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+}
+
+.main-navigation__link:hover {
+  color: @informTextColor;
+}
+
+.main-navigation__link:active {
+  color: rgba(255, 255, 255, 0.3);
+  transition: none;
+}

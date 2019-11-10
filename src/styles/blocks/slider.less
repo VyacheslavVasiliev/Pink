@@ -1,0 +1,43 @@
+.slider {
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  width: 70px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.slider__button {
+  text-indent: 1000px;
+  overflow: hidden;
+
+  padding: 0;
+  margin: 0;
+
+  border-radius: 50%;
+
+  box-sizing: content-box;
+
+  width: 6px;
+  height: 6px;
+  border: none;
+  background-color: #bec2c7;
+
+  font-size: 0;
+
+  cursor: pointer;
+}
+
+.slider__button--cheked {
+  background-color: @mainBackgroundColor;
+
+  border: 2px solid @mainTextColor;
+}

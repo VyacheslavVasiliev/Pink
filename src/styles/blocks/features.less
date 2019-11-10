@@ -1,0 +1,158 @@
+.features {
+  margin-bottom: 40px;
+
+  @media (min-width: 660px) {
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 960px) {
+    margin-bottom: 0;
+  }
+}
+
+.features__inner {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 660px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.features__represent {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  order: 1;
+  @media (min-width: 660px) {
+    order: 0;
+    width: 48%;
+
+    justify-content: left;
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    display: none;
+  }
+}
+
+.features__represent-inner{
+  @media (min-width: 660px) and (max-width: 959px) { 
+    width: 90%;
+    text-align: center;
+  }
+}
+
+.features__list {
+  .listDrop();
+
+  margin-top: 110px;
+
+  text-align: center;
+  @media (min-width: 660px) and (max-width: 959px) {
+    margin-top: 75px;
+
+    text-align: left;
+    width: 50%;
+  }
+
+  @media (min-width: 960px) {
+    margin-top: 0px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.features__item {
+  margin-bottom: 35px;
+  @media (min-width: 660px) {
+    margin-bottom: 40px;
+  }
+  @media (min-width: 960px) {
+    margin-bottom: 0px;
+    width: 32%;
+  }
+}
+
+.features__image-wrapper {
+  display: none;
+  @media (min-width: 960px) {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    &::after {
+      content: "";
+      position: absolute;
+
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 64px;
+
+      width: 75%;
+      height: 10px;
+      border-radius: 50%;
+
+      background-color: transparent;
+
+      box-shadow: 0 -14px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.features__description {
+  @media (min-width: 960px) {
+    position: relative;
+
+    padding-top: 55px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    margin-top: -85px;
+    background-color: @secondaryBackgroundColor;
+  }
+}
+
+.features__caption {
+  margin: 0;
+  padding: 0;
+
+  margin-bottom: 15px;
+
+  font-size: 18px;
+  line-height: 18px;
+
+  color: @titleTextColor;
+
+  @media (min-width: 960px) {
+    font-size: 30px;
+    line-height: 30px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-bottom: 30px;
+  }
+}
+
+.features__text {
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  color: @mainTextColor;
+  @media (min-width: 960px) {
+    // padding: 0 30px;
+
+    font-size: 18px;
+    line-height: 30px;
+  }
+}

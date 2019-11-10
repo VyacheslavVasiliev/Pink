@@ -1,0 +1,90 @@
+.toggler {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  height: 66px;
+  width: 90px;
+
+  cursor: pointer;
+
+  border: none;
+  background-color: transparent;
+
+  padding: 0;
+
+  text-indent: 1000px;
+  overflow: hidden;
+
+  @media (min-width: 660px) {
+    height: 110px;
+    width: 110px;
+  }
+  
+  @media (min-width: 960px) {
+    display: none;
+  }
+}
+.toggler {
+  width: 66px;
+
+  @media (min-width: 660px) {
+    height: 110px;
+    width: 110px;
+  }
+}
+
+.toggler::before,
+.toggler::after {
+  content: "";
+  position: absolute;
+
+  background-color: @secondaryTextColor;
+}
+
+.toggler:hover::before,
+.toggler:hover::after {
+  background-color: @informTextColor;
+}
+
+.toggler:active::before,
+.toggler:active::after {
+  background-color: fade(@informTextColor, 30%);
+}
+
+.toggler::before,
+.toggler::after {
+  top: calc(50% - 2px);
+  left: calc(50% - 14px);
+
+  width: 30px;
+  height: 5px;
+}
+.toggler::before {
+  transform: rotate(45deg);
+}
+.toggler::after {
+  transform: rotate(-45deg);
+}
+
+.close .toggler::before {
+  top: calc(50% - 10px);
+  left: calc(50% - 25px);
+
+  width: 50px;
+  height: 3px;
+  transform: none;
+
+  box-shadow: 0 9px 0px @secondaryTextColor, 0 18px 0px @secondaryTextColor;
+}
+.close .toggler:hover::before {
+  box-shadow: 0 9px 0px @informTextColor, 0 18px 0px @informTextColor;
+}
+
+.close .toggler:active::before {
+  box-shadow: 0 9px 0px fade(@informTextColor, 30%), 0 18px 0px fade(@informTextColor, 30%);
+}
+
+.close .toggler::after{
+  display: none;
+}

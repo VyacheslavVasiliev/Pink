@@ -1,0 +1,71 @@
+.arrow {
+  position: relative;
+
+  display: block;
+
+  padding: 0;
+  margin: 0;
+
+  width: 6%;
+
+  text-indent: 1000px;
+  overflow: hidden;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.arrow--right::before,
+.arrow--right::after,
+.arrow--left::before,
+.arrow--left::after {
+  position: absolute;
+  content: "";
+
+  width: 30px;
+  height: 2px;
+
+  background-color: fade(@mainTextColor, 30%);
+  
+  transition: color 100ms ease;
+}
+
+.arrow--right:hover::before,
+.arrow--right:hover::after,
+.arrow--left:hover::before,
+.arrow--left:hover::after {
+  background-color: fade(@mainTextColor, 60%);
+}
+
+.arrow--right:active::before,
+.arrow--right:active::after,
+.arrow--left:active::before,
+.arrow--left:active::after {
+  background-color: fade(@mainTextColor, 10%);
+  transition: none;
+}
+
+.arrow--right::before {
+  right: 0;
+  top: calc(50% + 10px);
+  transform: rotate(-45deg);
+}
+
+.arrow--right::after {
+  right: 0;
+  top: calc(50% - 10px);
+  transform: rotate(45deg);
+}
+
+.arrow--left::before {
+  transform: rotate(45deg);
+  left: 0;
+  top: calc(50% + 10px);
+}
+
+.arrow--left::after {
+  transform: rotate(-45deg);
+  left: 0;
+  top: calc(50% - 10px);
+}

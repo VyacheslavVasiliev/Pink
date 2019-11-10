@@ -1,0 +1,40 @@
+.logo {
+  fill: @secondaryTextColor;
+  color: @informTextColor;
+  transition: fill 0.15s ease, color 0.15s ease;
+
+  width: 75px;
+  height: 22px;
+  @media (min-width: 660px) {
+    width: 147px;
+    height: 40px;
+    transform: translateY(-20%);
+  }
+}
+
+.logo:hover {
+  fill: @informTextColor;
+  color: @secondaryTextColor;
+}
+.logo:active {
+  fill: @secondaryTextColor;
+  color: @informTextColor;
+
+  transition: all 0.1s ease;
+  opacity: 0.3;
+}
+
+.logo--footer {
+  color: @mainTextColor;
+  fill: @informTextColor;
+}
+
+.logo--footer:hover {
+  color: @informTextColor;
+  fill: @mainTextColor;
+  transition: none;
+}
+.logo--footer:active {
+  color: @mainTextColor;
+  fill: @informTextColor;
+}

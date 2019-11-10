@@ -1,0 +1,49 @@
+.mark {
+  position: relative;
+}
+
+.mark--no::before,
+.mark--no::after {
+  position: absolute;
+  content: "";
+
+  top: 50%;
+  left: calc(50% - 15px);
+
+  width: 35px;
+  height: 3px;
+
+  background-color: #f25b26;
+}
+
+.mark--no::before {
+  transform: rotate(45deg);
+}
+
+.mark--no::after {
+  transform: rotate(-45deg);
+}
+
+.mark--yes::before,
+.mark--yes::after {
+  position: absolute;
+  content: "";
+
+  height: 3px;
+
+  background-color: #3dc644;
+}
+
+.mark--yes::before {
+  top: 50%;
+  left: calc(50% - 14px);
+  width: 15px;
+  transform: rotate(45deg);
+}
+
+.mark--yes::after {
+  top: calc(50% - 5px);
+  left: calc(50% - 7px);
+  width: 30px;
+  transform: rotate(-45deg);
+}
