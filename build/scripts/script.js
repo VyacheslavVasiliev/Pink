@@ -1,102 +1,90 @@
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var AdaptiveSvgSprite =
-/*#__PURE__*/
-function () {
-  function AdaptiveSvgSprite() {
-    _classCallCheck(this, AdaptiveSvgSprite);
-
-    this._svgCollection = new Map();
-    this._REDRAW_POINTS = {
-      DESKTOP: "960",
-      TABLET: "660"
-    };
-    this._redrawSvg = this._redrawSvg.bind(this);
-    document.addEventListener("DOMContentLoaded", this._redrawSvg);
-    window.addEventListener("resize", this._redrawSvg);
-  }
-
-  _createClass(AdaptiveSvgSprite, [{
-    key: "setSvg",
-    value: function setSvg(svg, svgLinksMap) {
-      if (this._svgCollection.has(svg)) {
-        return;
-      }
-
-      var use = svg.getElementsByTagName("use")[0];
-
-      this._svgCollection.set(svg, {
-        svgLinksMap: svgLinksMap,
-        use: use
-      });
+;(()=>{
+  class SvgAdaptive{
+    constructor(){
+      this._storage = new Map();
+      this._redrawController = this._redrawController.bind(this);
     }
-  }, {
-    key: "_getWindowsWidth",
-    value: function _getWindowsWidth() {
-      var body = document.querySelector("body");
+  
+    setSvg(svg, controlObj){
+      const use = svg.getElementsByTagName("use")[0];
+      const redrawPoint = -Infinity
+  
+      this._storage.set(svg, {controlObj, use, redrawPoint});
+      
+      this._initSvgAdaptive();
+    }
+  
+    _initSvgAdaptive(){
+      document.addEventListener("DOMContentLoaded", this._redrawController);
+      window.addEventListener("resize", this._redrawController);
+    }
+  
+    _getWindowsWidth() {
+      const body = document.querySelector("body");
       body.style.overflow = "hidden";
-      var clientWidth = document.documentElement.clientWidth;
+      const viewportWidth = document.documentElement.clientWidth;
       body.style.overflow = "";
-      return clientWidth;
+      return viewportWidth;
     }
-  }, {
-    key: "_getTypeScreen",
-    value: function _getTypeScreen() {
-      var clientWidth = this._getWindowsWidth();
-
-      if (clientWidth >= this._REDRAW_POINTS.DESKTOP) {
-        return "DESKTOP";
-      }
-
-      if (clientWidth >= this._REDRAW_POINTS.TABLET) {
-        return "TABLET";
-      }
-
-      return "MOBILE";
-    }
-  }, {
-    key: "_redrawSvg",
-    value: function _redrawSvg() {
-      var typeScreen = this._getTypeScreen();
-
-      this._svgCollection.forEach(function (svgRelative) {
-        svgRelative.use.setAttribute("xlink:href", svgRelative.svgLinksMap[typeScreen]);
+  
+    _redrawController() {
+      const viewportWidth = this._getWindowsWidth();
+  
+      this._storage.forEach(({controlObj, use, redrawPoint})=>{
+        if (redrawPoint > viewportWidth) {
+          return;
+        }
+  
+        const redrawControlPoints = Object.keys(controlObj);
+        
+        for (let controlPoint of redrawControlPoints) {
+          if(viewportWidth >= +controlPoint){
+            redrawPoint = +controlPoint;
+          }
+        };
+  
+        this._redrawSvg({controlObj, use, redrawPoint});
       });
     }
-  }]);
+  
+    _redrawSvg({use, controlObj, redrawPoint}) {
+      use.setAttribute("xlink:href", controlObj[redrawPoint]);
+    }
+  };
 
-  return AdaptiveSvgSprite;
-}();
+  window.SvgAdaptive = SvgAdaptive;
+})();
 
-var SVG_SPRITE_HEADER = {
-  DESKTOP: "./image/spriteSVG/sprite.svg#logotype-desktop",
-  TABLET: "./image/spriteSVG/sprite.svg#logotype-tablet",
-  MOBILE: "./image/spriteSVG/sprite.svg#logotype-mobile"
-};
-var SVG_SPRITE_FOOTER = {
-  DESKTOP: "./image/spriteSVG/sprite.svg#logotype-desktop-footer",
-  TABLET: "./image/spriteSVG/sprite.svg#logotype-tablet-footer"
-};
-var headerSvg = document.querySelector(".main-navigation__logo-image");
-var footerSvg = document.querySelector(".footer__logo");
-var adaptiveSvg = new AdaptiveSvgSprite();
-adaptiveSvg.setSvg(footerSvg, SVG_SPRITE_FOOTER);
-adaptiveSvg.setSvg(headerSvg, SVG_SPRITE_HEADER);
+;(()=>{
+  const {SvgAdaptive} = window;
 
-(function () {
+  const headerSvg = document.querySelector(".main-navigation__logo-image");
+  const footerSvg = document.querySelector(".footer__logo");
+  
+  const HEADER_REDRAW_POINTS = {
+    "960": "./image/spriteSVG/sprite.svg#logotype-desktop",
+    "660": "./image/spriteSVG/sprite.svg#logotype-tablet",
+    "0": "./image/spriteSVG/sprite.svg#logotype-mobile"
+  }
+  
+  const FOOTER_REDRAW_POINTS = {
+    "960": "./image/spriteSVG/sprite.svg#logotype-desktop-footer",
+    "660": "./image/spriteSVG/sprite.svg#logotype-tablet-footer"
+  };
+  
+  const svgAdapt = new SvgAdaptive;
+  svgAdapt.setSvg(headerSvg, HEADER_REDRAW_POINTS);
+  svgAdapt.setSvg(footerSvg, FOOTER_REDRAW_POINTS);
+})();
+
+;(() => {
   function closeNavigation() {
-    var navigation = document.querySelector(".main-navigation");
+    const navigation = document.querySelector(".main-navigation");
     navigation.classList.toggle("close");
   }
 
   closeNavigation(); // закрывает выпадающее меню (по умолчанию открыто, на случай если пользователь отключил js в настройках)
 
-  var toggler = document.querySelector(".toggler");
+  const toggler = document.querySelector(".toggler");
   toggler.addEventListener("click", closeNavigation);
 })();
